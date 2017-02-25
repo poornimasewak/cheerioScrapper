@@ -1,30 +1,30 @@
 {
-    "name": "cheerioScrapper",
-    "version": "1.0.0",
-    "description": "create a web app that lets users leave comments on the latest news. Mongoose and Cheerio muscles to scrape news from another site.",
-    "main": "index.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "node server.js"
-
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/poornimasewak/cheerioScrapper.git"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/poornimasewak/cheerioScrapper/issues"
-    },
-    "homepage": "https://github.com/poornimasewak/cheerioScrapper#readme",
-    "dependencies": {
-        "body-parser": "^1.16.1",
-        "cheerio": "^0.22.0",
-        "express": "^4.14.1",
-        "express-handlebars": "^3.0.0",
-        "mongoose": "^4.8.4",
-        "request": "^2.79.0"
-    }
+  "name": "cheerioScrapper",
+  "version": "1.0.0",
+  "description": "create a web app that lets users leave comments on the latest news. Mongoose and Cheerio muscles to scrape news from another site.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/poornimasewak/cheerioScrapper.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/poornimasewak/cheerioScrapper/issues"
+  },
+  "homepage": "https://github.com/poornimasewak/cheerioScrapper#readme",
+  "dependencies": {
+    "body-parser": "^1.16.1",
+    "cheerio": "^0.22.0",
+    "express": "^4.14.1",
+    "express-handlebars": "^3.0.0",
+    "mongojs": "^2.4.0",
+    "mongoose": "^4.8.4",
+    "request": "^2.79.0"
+  }
 }
