@@ -1,10 +1,11 @@
 $(document).on('click', "#scrapeData", function () {
     console.log("hi");
+     $("#scrapeArticle").append('<h2>'+ "hello" + '</h2>');
     
-	$.ajax({
-		url: '/scrapeData'
-	}).done(function(){
-		$.getJSON('/scrapeArticle', function(data){
+	// $.ajax({
+	// 	url: '/'
+	// }).done(function(){
+	// 	$.getJSON('/', function(data){
 			// var count = 1;
 			// for (var i =0; i <data.length; i++){
 			// 	$("#articles").append(
@@ -14,8 +15,8 @@ $(document).on('click', "#scrapeData", function () {
 		    //   				"</div>")
 			// 	count++;
 			// }
-            $("#scrapeArticle").append("hello");
-            console.log(data);
-		});
-	});
+           
+            // console.log(data);
+		// });
+	// });
 });

@@ -8,33 +8,18 @@ var cheerio = require("cheerio");
 var url = "http://www.foxnews.com/leisure/index.html";
 
 //some other dependencies
+var logger = require('morgan');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
 
-function shouldWipe() {
-    return process.argv[2] === "--wipe";
 
-}
+// function shouldWipe() {
+//     return process.argv[2] === "--wipe";
 
-// mongoose
-// var mongoose = require('mongoose');
-// mongoose.connect('mongodb://localhost/test');
+// }
 
-// var Cat = mongoose.model('Cat', {
-//     name: String
-// });
-
-// var kitty = new Cat({
-//     name: 'Zildjian'
-// });
-// kitty.save(function (err) {
-//     if (err) {
-//         console.log(err);
-//     } else {
-//         console.log('meow');
-//     }
-// });
-
-// app.use(logger('dev'));
+// middleware to use morgan and bodyparser
+app.use(logger('dev'));
 app.use(bodyParser.urlencoded({
     extended: false
 }));
@@ -47,11 +32,30 @@ app.engine('handlebars', exphbs({
 }));
 app.set('view engine', 'handlebars');
 
+// connect to db
+mongoose.connect('mongodb://heroku_cdkt1ljl:5cvtkca7mjpph0apk1frvjds@ds157439.mlab.com:57439/heroku_cdkt1ljl');
+var db = mongoose.Connection;
+
+//show any errors
+db.on('error', function(err){
+	console.log('Mongoose Error: ' + err);
+});
+
+//show inevitable success
+db.once('open', function(){
+	console.log('Mongoose connection a success!');
+});
+
+//the models
+var Article = require('./models/articles.js');
+var Comment = require('./models/comments.js');
+
+// Home page
 app.get("/", function (req, res) {
 res.render("index");
 });
 
-app.get("/scrapeData", function (req, res) {
+app.get("/", function (req, res) {
     request(url, function (error, response, html) {
 
         var $ = cheerio.load(html);
