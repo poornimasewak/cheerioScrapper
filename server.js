@@ -50,7 +50,7 @@ var db = mongoose.Connection;
 var News = require('./models/news.js');
 var Comment = require('./models/comments.js');
 
-// Home page
+// Home page route
 app.get("/", function (req, res) {
        res.render("index");
 });
